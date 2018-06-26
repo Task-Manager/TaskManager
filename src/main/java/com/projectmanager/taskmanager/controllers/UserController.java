@@ -8,6 +8,7 @@ import com.projectmanager.taskmanager.services.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
@@ -105,6 +106,28 @@ public class UserController {
 //    @PreAuthorize("isAuthenticated()") uncomment this to require the user to be login to access this page.
     public String profilePage(Model model) {
 
-        return null;
+        /*
+            Remove this if check only if @PreAuthorize is active / uncommented /.
+            Otherwise this method throws runtime exception.
+         */
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
+            return "redirect:/";
+        }
+
+
+        /*
+            This will get our currently logged in user.
+            It will have all basic information -> principal.getUsername() returns our USER EMAIL !!
+            because we've setted up that our loggin will be with email not by username.
+            Principal will have also this user roles + password.
+         */
+        UserDetails principal =
+                (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        User user = this.userService.findByEmail(principal.getUsername());
+
+        model.addAttribute("user", user);
+        model.addAttribute("view", "user/profile");
+        return "base-layout";
     }
 }
