@@ -49,6 +49,10 @@ public class User implements Serializable {
         this.roles = new HashSet<>();
     }
 
+    public void addRole(Role role) {
+        this.roles.add(role);
+    }
+
     public Long getId() {
         return this.id;
     }
