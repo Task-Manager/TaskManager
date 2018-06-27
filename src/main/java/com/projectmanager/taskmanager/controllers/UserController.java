@@ -75,10 +75,6 @@ public class UserController {
     public String processRegister(Model model, UserDto userDto,
                                   BindingResult result) {
 
-        if (!userDto.getPassword().equals(userDto.getConfirmPassword())) {
-            return "redirect:/register";
-        }
-
         /*
             Checks if user already exist's in the db with this email.
                 -if it does it throws message to the view to be shown to the user.
@@ -88,6 +84,14 @@ public class UserController {
                 this.userService.findByEmail(userDto.getEmail());
         if (foundUser != null) {
             model.addAttribute("message", "Ups, it seems that this email is already taken. Please choose new one.");
+            model.addAttribute("view", "user/register");
+
+            return "base-layout";
+        }
+
+
+        if (!userDto.getPassword().equals(userDto.getConfirmPassword())) {
+            model.addAttribute("message", "Password does not match the confirm password.");
             model.addAttribute("view", "user/register");
 
             return "base-layout";
