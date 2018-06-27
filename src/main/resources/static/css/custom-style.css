@@ -2,6 +2,11 @@
   width: 1300px;
   margin: 0 auto;
   height: 800px;
-  background: #1c699d; }
+  background-color: #C1E7ED;
+  border-radius: 15px; }
+  #projects article {
+    border: 1px solid blue;
+    background: #1c699d;
+    margin: 30px; }
 
 /*# sourceMappingURL=custom-style.css.map */

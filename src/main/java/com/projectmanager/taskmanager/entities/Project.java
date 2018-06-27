@@ -1,8 +1,8 @@
 package com.projectmanager.taskmanager.entities;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,7 +16,7 @@ public class Project {
     private String name;
 
     @Column(name = "date_of_creation")
-    private LocalDate createdDate;
+    private Date createdDate;
 
     @Column(name = "status")
     private String status;
@@ -35,7 +35,7 @@ public class Project {
 
     public Project(String name, String status) {
         this.name = name;
-        this.createdDate = LocalDate.now();
+        this.createdDate = null;
         this.status = status;
         this.users = new ArrayList<>();
         this.tasks = new ArrayList<>();
@@ -57,11 +57,11 @@ public class Project {
         this.name = name;
     }
 
-    public LocalDate getCreatedDate() {
+    public Date getCreatedDate() {
         return this.createdDate;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 

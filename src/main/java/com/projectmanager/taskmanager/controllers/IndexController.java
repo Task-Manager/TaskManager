@@ -1,8 +1,7 @@
 package com.projectmanager.taskmanager.controllers;
 
-import com.projectmanager.taskmanager.entities.Task;
+import com.projectmanager.taskmanager.entities.Project;
 import com.projectmanager.taskmanager.services.contracts.ProjectService;
-import com.projectmanager.taskmanager.services.contracts.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,18 +13,16 @@ import java.util.List;
 public class IndexController {
 
     private ProjectService projectService;
-    private TaskService taskService;
 
     @Autowired
-    public IndexController(ProjectService projectService, TaskService taskService) {
+    public IndexController(ProjectService projectService) {
         this.projectService = projectService;
-        this.taskService = taskService;
     }
 
     @GetMapping("/")
     public String index(Model model) {
-        List<Task> tasks = this.taskService.findAll();
-        model.addAttribute("tasks", tasks);
+        List<Project> projects = this.projectService.findAll();
+        model.addAttribute("tasks", projects);
         model.addAttribute("view", "home/index");
         return "base-layout";
     }
