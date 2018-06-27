@@ -6,15 +6,10 @@
                     <th:block th:each="project : ${projects}">
                         <div class="col-md-6">
                             <article>
-                                <header>
-                                    <h2 th:text="${project.name}"></h2>
-                                </header>
-                                <footer>
-                                    <div class="pull-right">
-                                        <a class="btn btn-default btn-xs"
-                                           th:href="@{/project/{id}(id=${project.id})}">Read more &raquo;</a>
-                                    </div>
-                                </footer>
+                                <div class="article-content">
+                                    <a class="btn btn-default btn-xs"
+                                       th:text="${project.name}" th:href="@{/project/{id}(id=${project.id})}">Read more &raquo;</a>
+                                </div>
                             </article>
                         </div>
                     </th:block>

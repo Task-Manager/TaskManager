@@ -2,7 +2,7 @@ package com.projectmanager.taskmanager.services.contracts;
 
 import com.projectmanager.taskmanager.entities.Project;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public interface ProjectService {
@@ -14,5 +14,5 @@ public interface ProjectService {
 
     List<Project> getAllWithName(String status);
 
-    List<Project> getAllByStartDate(LocalDate date);
+    List<Project> getAllByStartDate(Date date);
 }

@@ -22,7 +22,7 @@ public class IndexController {
     @GetMapping("/")
     public String index(Model model) {
         List<Project> projects = this.projectService.findAll();
-        model.addAttribute("tasks", projects);
+        model.addAttribute("projects", projects);
         model.addAttribute("view", "home/index");
         return "base-layout";
     }
