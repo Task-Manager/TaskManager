@@ -35,10 +35,6 @@ body {
   opacity: 0.6;
   transition: opacity 0.2s linear 0s; }
 
-::-webkit-scrollbar {
-  background: #F5D09E;
-  width: 0; }
-
 #tasks {
   height: auto;
   background-color: #F8EAC6; }
