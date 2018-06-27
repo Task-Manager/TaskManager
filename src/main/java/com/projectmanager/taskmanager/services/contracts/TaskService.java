@@ -8,4 +8,6 @@ public interface TaskService {
     List<Task> findAll();
 
     List<Task> findAllByProjectId(Long id);
+
+    List<Task> findAllByStatus(List<Task> tasks, String status);
 }

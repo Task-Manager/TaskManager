@@ -18,6 +18,9 @@ public class Task {
     @ManyToOne(targetEntity = Project.class)
     private Project project;
 
+    @Column(name = "status", nullable = false)
+    private String status;
+
     public Task() {
     }
 
@@ -57,5 +60,13 @@ public class Task {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

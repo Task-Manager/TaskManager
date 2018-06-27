@@ -41,7 +41,6 @@ public class UserController {
         return "base-layout";
     }
 
-
     /*
         RequestMapping - combines Get and Post request / not only /.
         We specify that we are interested in GET request.
@@ -80,9 +79,7 @@ public class UserController {
                 -if it does it throws message to the view to be shown to the user.
                 -if it doesn't it should proceed with creating this user in the db.
          */
-        User foundUser =
-                this.userService.findByEmail(userDto.getEmail());
-        if (foundUser != null) {
+        if (this.userService.checkIfUserExists(userDto.getEmail())) {
             model.addAttribute("message", "Ups, it seems that this email is already taken. Please choose new one.");
             model.addAttribute("view", "user/register");
 

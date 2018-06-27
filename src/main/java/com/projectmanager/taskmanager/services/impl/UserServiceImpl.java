@@ -31,4 +31,16 @@ public class UserServiceImpl implements UserService {
 
         this.repository.saveAndFlush(user);
     }
+
+    /**
+     * Checks if user exists by email.
+     *
+     * @return true - only if there is a user
+     * into the db with this email, false other wise.
+     */
+    @Override
+    public boolean checkIfUserExists(String email) {
+        User user = this.repository.findByEmail(email);
+        return user == null;
+    }
 }
