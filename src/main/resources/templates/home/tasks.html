@@ -11,7 +11,7 @@
                             <th:block th:each="task : ${todoTasks}">
                                 <div class="task" >
                                     <h3 th:text="${task.label}"></h3>
-                                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae culpa ducimus eaque</h4>
+                                    <h4 th:text="${task.subContent}"></h4>
                                 </div>
                             </th:block>
                         </div>
@@ -26,7 +26,7 @@
                             <th:block th:each="task : ${inprogressTasks}">
                                 <div class="task" >
                                     <h3 th:text="${task.label}"></h3>
-                                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae culpa ducimus eaque</h4>
+                                    <h4 th:text="${task.subContent}"></h4>
                                 </div>
                             </th:block>
                         </div>
@@ -41,7 +41,7 @@
                             <th:block th:each="task : ${finishedTasks}">
                                 <div class="task" >
                                     <h3 th:text="${task.label}"></h3>
-                                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae culpa ducimus eaque</h4>
+                                    <h4 th:text="${task.subContent}"></h4>
                                 </div>
                             </th:block>
                         </div>

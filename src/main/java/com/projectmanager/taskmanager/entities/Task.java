@@ -24,6 +24,7 @@ public class Task {
     @Column(name = "content", length = 1000)
     private String content;
 
+
     /*
         Used to show the content body, for the task
         at the URL - project/id.
@@ -103,4 +104,5 @@ public class Task {
             this.subContent = content;
         }
     }
+
 }
