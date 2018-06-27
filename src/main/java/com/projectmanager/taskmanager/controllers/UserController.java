@@ -80,6 +80,21 @@ public class UserController {
         }
 
         /*
+            Checks if user already exist's in the db with this email.
+                -if it does it throws message to the view to be shown to the user.
+                -if it doesn't it should proceed with creating this user in the db.
+         */
+        User foundUser =
+                this.userService.findByEmail(userDto.getEmail());
+        if (foundUser != null) {
+            model.addAttribute("message", "Ups, it seems that this email is already taken. Please choose new one.");
+            model.addAttribute("view", "user/register");
+
+            return "base-layout";
+        }
+
+
+        /*
             Creating new user from the form data / userDto /
             with encoded password.
          */
