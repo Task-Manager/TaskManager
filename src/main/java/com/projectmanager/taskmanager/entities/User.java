@@ -10,7 +10,6 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
-
     /*
         @Id - tells hibernate that this field will be PK.
         @GeneratedValue.. - Auto-generated (incremented) value.
@@ -35,18 +34,38 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private List<Task> tasks;
 
+    @ManyToMany(mappedBy = "users")
+    private List<Project> projects;
 
     public User() {
         this.tasks = new ArrayList<>();
         this.roles = new HashSet<>();
+        this.projects = new ArrayList<>();
     }
 
     public User(String email, String fullName, String password) {
         this.email = email;
         this.fullName = fullName;
         this.password = password;
+
         this.tasks = new ArrayList<>();
         this.roles = new HashSet<>();
+        this.projects = new ArrayList<>();
+    }
+
+    public User(String email, String fullName, String password,
+                Set<Role> roles, List<Task> tasks, List<Project> projects) {
+
+        this.email = email;
+        this.fullName = fullName;
+        this.password = password;
+        this.roles = roles;
+        this.tasks = tasks;
+        this.projects = projects;
+    }
+
+    public void addRole(Role role) {
+        this.roles.add(role);
     }
 
     public Long getId() {

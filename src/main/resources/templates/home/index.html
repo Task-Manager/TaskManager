@@ -1,0 +1,25 @@
+<main>
+    <div class="wrapper">
+        <div class="body-container">
+            <section id="projects">
+                <div class="row">
+                    <th:block th:each="project : ${projects}">
+                        <div class="col-md-6">
+                            <article>
+                                <header>
+                                    <h2 th:text="${project.name}"></h2>
+                                </header>
+                                <footer>
+                                    <div class="pull-right">
+                                        <a class="btn btn-default btn-xs"
+                                           th:href="@{/project/{id}(id=${project.id})}">Read more &raquo;</a>
+                                    </div>
+                                </footer>
+                            </article>
+                        </div>
+                    </th:block>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>

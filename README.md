@@ -1,2 +1,1 @@
-# TaskManager
-An application that  helps you manage your tasks.
+Hello, task manager is web based application that will help you with project management.

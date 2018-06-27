@@ -1,38 +1,29 @@
-package com.projectmanager.taskmanager.entities;
+package com.projectmanager.taskmanager.dtos;
 
-import javax.persistence.*;
+import com.projectmanager.taskmanager.entities.Project;
+import com.projectmanager.taskmanager.entities.User;
 
-@Entity
-@Table(name = "tasks")
-public class Task {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-    @Column(name = "label", nullable = false, length = 35)
+public class TaskDto implements Serializable {
+    @NotNull
     private String label;
 
-    @ManyToOne(targetEntity = User.class)
+    @NotNull
     private User user;
 
-    @ManyToOne(targetEntity = Project.class)
+    @NotNull
     private Project project;
 
-    public Task() {
+    public TaskDto() {
+        super();
     }
 
-    public Task(String label, User user, Project project) {
+    public TaskDto(String label, User user, Project project) {
         this.label = label;
         this.user = user;
         this.project = project;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getLabel() {
