@@ -1,18 +1,19 @@
 <main>
-        <div class="body-container">
-            <section id="projects">
-                <div class="row">
-                    <th:block th:each="project : ${projects}">
-                        <div class="col-md-6">
-                            <article>
-                                <div class="article-content">
-                                    <a class="btn btn-default btn-xs"
-                                       th:text="${project.name}" th:href="@{/project/{id}(id=${project.id})}">Read more &raquo;</a>
-                                </div>
-                            </article>
-                        </div>
-                    </th:block>
-                </div>
-            </section>
-        </div>
+    <div class="body-container">
+        <section id="projects">
+            <div class="row">
+                <th:block th:each="project : ${projects}">
+                    <div class="col-md-6">
+                        <article>
+                            <div class="article-content">
+                                <a class="btn btn-default btn-xs"
+                                   th:text="${project.name}" th:href="@{/project/{id}(id=${project.id})}">Read more
+                                    &raquo;</a>
+                            </div>
+                        </article>
+                    </div>
+                </th:block>
+            </div>
+        </section>
+    </div>
 </main>

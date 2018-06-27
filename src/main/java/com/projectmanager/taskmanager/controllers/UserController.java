@@ -30,7 +30,6 @@ public class UserController {
     @Autowired
     public UserController(RoleServiceImpl roleService,
                           UserServiceImpl userService) {
-
         this.roleService = roleService;
         this.userService = userService;
     }

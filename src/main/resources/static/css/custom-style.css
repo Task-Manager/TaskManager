@@ -10,31 +10,54 @@ body {
       height: auto;
       background-color: #F5D09E;
       border-radius: 15px; }
+      body .body-container section .row {
+        width: 95%;
+        margin: 0 auto; }
 
-#projects .row {
-  width: 95%;
-  margin: 0 auto; }
-  #projects .row article {
-    background-color: #FFAA5F;
-    margin: 40px 30px;
-    height: 200px;
+#projects article {
+  background-color: #FFAA5F;
+  margin: 40px 30px;
+  height: 200px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 10px 3px #953C26; }
+  #projects article .article-content {
+    text-align: center;
+    height: 100%; }
+    #projects article .article-content a {
+      color: #953C26;
+      background: none;
+      font-size: 42px;
+      width: 100%;
+      height: 100%;
+      line-height: 180px;
+      border: none; }
+#projects article:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s linear 0s; }
+
+#tasks {
+  height: 800px;
+  background-color: #F8EAC6; }
+  #tasks .task-column {
+    height: 780px;
+    margin: 15px 12px;
     border-radius: 5px;
-    box-shadow: 1px 2px 10px 3px #953C26; }
-    #projects .row article .article-content {
-      text-align: center;
-      height: 100%; }
-      #projects .row article .article-content a {
-        color: #953C26;
-        background: none;
-        font-size: 42px;
-        width: 100%;
-        height: 100%;
-        line-height: 180px;
-        border: none; }
-  #projects .row article:hover {
-    opacity: 0.6;
-    transition: opacity 0.2s linear 0s; }
-  #projects .row article:nth-child(3), #projects .row article:nth-child(4) {
-    margin: 0 30px; }
+    background-color: #F5D09E;
+    box-shadow: 0 0 5px 1px grey; }
+    #tasks .task-column .task-column-header {
+      background: #953C26;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px; }
+      #tasks .task-column .task-column-header h3 {
+        color: white;
+        text-align: center;
+        padding: 5px;
+        letter-spacing: 1px; }
+    #tasks .task-column .task-column-body .task {
+      height: 120px;
+      background: #E08E5F;
+      margin: 10px 15px;
+      border-radius: 3px;
+      box-shadow: 0 0 5px 1px grey; }
 
 /*# sourceMappingURL=custom-style.css.map */
