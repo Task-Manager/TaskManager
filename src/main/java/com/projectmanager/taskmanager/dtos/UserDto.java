@@ -4,7 +4,6 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class UserDto implements Serializable {
-
     @NotNull
     private String email;
 
