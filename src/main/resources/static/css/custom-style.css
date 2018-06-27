@@ -35,6 +35,10 @@ body {
   opacity: 0.6;
   transition: opacity 0.2s linear 0s; }
 
+::-webkit-scrollbar {
+  background: #F5D09E;
+  width: 0; }
+
 #tasks {
   height: auto;
   background-color: #F8EAC6; }
@@ -51,7 +55,7 @@ body {
       #tasks .task-column .task-column-header h3 {
         color: white;
         text-align: center;
-        padding: 5px;
+        padding: 7px;
         letter-spacing: 1px; }
     #tasks .task-column .task-column-body {
       height: 735px;
