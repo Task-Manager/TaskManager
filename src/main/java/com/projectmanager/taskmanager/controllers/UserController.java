@@ -22,6 +22,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static com.projectmanager.taskmanager.constants.roles.RolesNames.ANONYMOUS_USER;
+import static com.projectmanager.taskmanager.constants.roles.RolesNames.USER_ROLE;
+import static com.projectmanager.taskmanager.constants.url.RedirectURLRoads.*;
+import static com.projectmanager.taskmanager.constants.user.UserErrorMessages.CONFIRM_PASS_NOT_MATCHING;
+import static com.projectmanager.taskmanager.constants.user.UserErrorMessages.EMAIL_ALREADY_EXISTS;
+import static com.projectmanager.taskmanager.constants.view.ViewVariableNames.VIEW;
+import static com.projectmanager.taskmanager.constants.view.ViewVariableNames.VIEW_MESSAGE;
+
 @Controller
 public class UserController {
     private RoleServiceImpl roleService;
@@ -37,7 +45,7 @@ public class UserController {
     @GetMapping("/login")
     public String login(Model model) {
 
-        model.addAttribute("view", "user/login");
+        model.addAttribute(VIEW, "user/login");
         return "base-layout";
     }
 
@@ -61,12 +69,12 @@ public class UserController {
         /*
             This url has been setup in WebSecurityConfig class in method configure.
          */
-        return "redirect:/login?logout";
+        return REDIRECT_LOGIN_LOGOUT;
     }
 
     @GetMapping("/register")
     public String register(Model model) {
-        model.addAttribute("view", "user/register");
+        model.addAttribute(VIEW, "user/register");
         return "base-layout";
     }
 
@@ -80,16 +88,16 @@ public class UserController {
                 -if it doesn't it should proceed with creating this user in the db.
          */
         if (this.userService.checkIfUserExists(userDto.getEmail())) {
-            model.addAttribute("message", "Ups, it seems that this email is already taken. Please choose new one.");
-            model.addAttribute("view", "user/register");
+            model.addAttribute(VIEW_MESSAGE, EMAIL_ALREADY_EXISTS);
+            model.addAttribute(VIEW, "user/register");
 
             return "base-layout";
         }
 
 
         if (!userDto.getPassword().equals(userDto.getConfirmPassword())) {
-            model.addAttribute("message", "Password does not match the confirm password.");
-            model.addAttribute("view", "user/register");
+            model.addAttribute(VIEW_MESSAGE, CONFIRM_PASS_NOT_MATCHING);
+            model.addAttribute(VIEW, "user/register");
 
             return "base-layout";
         }
@@ -109,12 +117,12 @@ public class UserController {
             Setting new role for our user.
             We can change permissions here.
          */
-        Role userRole = this.roleService.findByName("ROLE_USER");
+        Role userRole = this.roleService.findByName(USER_ROLE);
         user.addRole(userRole);
         this.userService.addNewUser(user);
 
 
-        return "redirect:/login";
+        return REDIRECT_LOGIN_PAGE;
     }
 
     @GetMapping("/profile")
@@ -125,8 +133,8 @@ public class UserController {
             Remove this if check only if @PreAuthorize is active / uncommented /.
             Otherwise this method throws runtime exception.
          */
-        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
-            return "redirect:/";
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals(ANONYMOUS_USER)) {
+            return REDIRECT_INDEX;
         }
 
 
@@ -142,7 +150,7 @@ public class UserController {
         User user = this.userService.findByEmail(principal.getUsername());
 
         model.addAttribute("user", user);
-        model.addAttribute("view", "user/profile");
+        model.addAttribute(VIEW, "user/profile");
         return "base-layout";
     }
 }

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,8 +46,7 @@ public class TaskServiceImpl implements TaskService {
             throw new ApplicationRuntimeException("Invalid project id. There is not such project in the DB.");
         }
 
-        List<Task> tasks = new ArrayList<>();
-
+        List<Task> tasks;
         switch (status) {
             case "ToDo":
                 tasks = tasksByProjectId.stream()
