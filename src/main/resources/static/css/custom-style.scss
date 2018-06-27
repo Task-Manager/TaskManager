@@ -1,14 +1,23 @@
+body{
+  background-color: #F8EAC6;
+  box-sizing: border-box;
+  .body-container{
+    padding-top: 20px;
+  }
+}
+
 #projects {
-  width: 1300px;
+  width: 1250px;
+  max-width: 98%;
   margin: 0 auto;
   height: auto;
-  background-color: #C1E7ED;
+  background-color: #F5D09E;
   border-radius: 15px;
   .row {
     width: 95%;
     margin: 0 auto;
     article {
-      background: #1c699d;
+      background-color: #FFAA5F;
       margin: 40px 30px;
       height: 200px;
       border-radius: 5px;
@@ -16,7 +25,7 @@
         text-align: center;
         height: 100%;
         a {
-          color: white;
+          color: #953C26;
           background: none;
           font-size: 42px;
           width: 100%;
