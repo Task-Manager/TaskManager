@@ -27,8 +27,8 @@ import static com.projectmanager.taskmanager.constants.roles.RolesNames.USER_ROL
 import static com.projectmanager.taskmanager.constants.url.RedirectURLRoads.*;
 import static com.projectmanager.taskmanager.constants.user.UserErrorMessages.CONFIRM_PASS_NOT_MATCHING;
 import static com.projectmanager.taskmanager.constants.user.UserErrorMessages.EMAIL_ALREADY_EXISTS;
-import static com.projectmanager.taskmanager.constants.view.ViewVariableNames.VIEW;
-import static com.projectmanager.taskmanager.constants.view.ViewVariableNames.VIEW_MESSAGE;
+import static com.projectmanager.taskmanager.constants.view.UserPathVariables.*;
+import static com.projectmanager.taskmanager.constants.view.VariableNames.*;
 
 @Controller
 public class UserController {
@@ -45,7 +45,7 @@ public class UserController {
     @GetMapping("/login")
     public String login(Model model) {
 
-        model.addAttribute(VIEW, "user/login");
+        model.addAttribute(VIEW, USER_LOGIN);
         return "base-layout";
     }
 
@@ -74,7 +74,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(Model model) {
-        model.addAttribute(VIEW, "user/register");
+        model.addAttribute(VIEW, USER_REGISTER);
         return "base-layout";
     }
 
@@ -89,7 +89,7 @@ public class UserController {
          */
         if (this.userService.checkIfUserExists(userDto.getEmail())) {
             model.addAttribute(VIEW_MESSAGE, EMAIL_ALREADY_EXISTS);
-            model.addAttribute(VIEW, "user/register");
+            model.addAttribute(VIEW, USER_REGISTER);
 
             return "base-layout";
         }
@@ -97,7 +97,7 @@ public class UserController {
 
         if (!userDto.getPassword().equals(userDto.getConfirmPassword())) {
             model.addAttribute(VIEW_MESSAGE, CONFIRM_PASS_NOT_MATCHING);
-            model.addAttribute(VIEW, "user/register");
+            model.addAttribute(VIEW, USER_REGISTER);
 
             return "base-layout";
         }
@@ -149,8 +149,8 @@ public class UserController {
 
         User user = this.userService.findByEmail(principal.getUsername());
 
-        model.addAttribute("user", user);
-        model.addAttribute(VIEW, "user/profile");
+        model.addAttribute(VIEW_VARIABLE_USER, user);
+        model.addAttribute(VIEW, USER_PROFILE);
         return "base-layout";
     }
 }

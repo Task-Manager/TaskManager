@@ -100,8 +100,9 @@ public class Task {
 
     @Transient
     public void setSubContent() {
-        if (this.content.length() > 50) {
-            this.subContent = content.substring(0, 50) + "...";
+        int maxSubContentLen = 100;
+        if (this.content.length() > maxSubContentLen) {
+            this.subContent = content.substring(0, maxSubContentLen) + "...";
         } else {
             this.subContent = content;
         }

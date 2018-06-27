@@ -43,8 +43,6 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public List<Project> getAllWithName(String status) {
-
-        // TODO; Define statuses ?
         //TODO: Make sure that the status is one of the possible.
         return this.projectRepository.findAllByStatus(status);
     }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+import static com.projectmanager.taskmanager.constants.view.VariableNames.VIEW;
+
 @Controller
 public class IndexController {
 
@@ -23,7 +25,7 @@ public class IndexController {
     public String index(Model model) {
         List<Project> projects = this.projectService.findAll();
         model.addAttribute("projects", projects);
-        model.addAttribute("view", "home/index");
+        model.addAttribute(VIEW, "home/index");
         return "base-layout";
     }
 }
