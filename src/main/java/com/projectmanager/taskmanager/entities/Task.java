@@ -35,6 +35,7 @@ public class Task {
     private String subContent;
 
     public Task() {
+        super();
     }
 
     public Task(String label, User user, Project project, String content) {
@@ -97,6 +98,7 @@ public class Task {
         return this.subContent;
     }
 
+    @Transient
     public void setSubContent(String content) {
         if (this.content.length() > 50) {
             this.subContent = content.substring(0, 50) + "...";
