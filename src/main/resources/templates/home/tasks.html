@@ -5,46 +5,30 @@
                 <div class="col-md-4">
                     <div class="task-column">
                         <div class="task-column-header">
-                            <h3>TODO</h3>
+                            <h3>TO DO</h3>
                         </div>
                         <div class="task-column-body">
-                            <!--   Test   -->
-                            <div class="task">
-
-                            </div>
-                            <div class="task">
-
-                            </div>
-                            <div class="task">
-
-                            </div>
-                            <div class="task">
-
-                            </div>
-                            <!--   Test   -->
+                            <th:block th:each="task : ${tasks}">
+                                <div class="task" >
+                                    <h3 th:text="${task.label}"></h3>
+                                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae culpa ducimus eaque</h4>
+                                </div>
+                            </th:block>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="task-column">
                         <div class="task-column-header">
-                            <h3>In Process</h3>
+                            <h3>In Progess</h3>
                         </div>
                         <div class="task-column-body">
-                            <!--   Test   -->
-                            <div class="task">
-
-                            </div>
-                            <div class="task">
-
-                            </div>
-                            <div class="task">
-
-                            </div>
-                            <div class="task">
-
-                            </div>
-                            <!--   Test   -->
+                            <th:block th:each="task : ${tasks}">
+                                <div class="task" >
+                                    <h3 th:text="${task.label}"></h3>
+                                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae culpa ducimus eaque</h4>
+                                </div>
+                            </th:block>
                         </div>
                     </div>
                 </div>
@@ -54,20 +38,12 @@
                             <h3>Finished</h3>
                         </div>
                         <div class="task-column-body">
-                            <!--   Test   -->
-                            <div class="task">
-
-                            </div>
-                            <div class="task">
-
-                            </div>
-                            <div class="task">
-
-                            </div>
-                            <div class="task">
-
-                            </div>
-                            <!--   Test   -->
+                            <th:block th:each="task : ${tasks}">
+                                <div class="task" >
+                                    <h3 th:text="${task.label}"></h3>
+                                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae culpa ducimus eaque</h4>
+                                </div>
+                            </th:block>
                         </div>
                     </div>
                 </div>

@@ -35,8 +35,12 @@ body {
   opacity: 0.6;
   transition: opacity 0.2s linear 0s; }
 
+::-webkit-scrollbar {
+  background: #F5D09E;
+  width: 0; }
+
 #tasks {
-  height: 800px;
+  height: auto;
   background-color: #F8EAC6; }
   #tasks .task-column {
     height: 780px;
@@ -53,11 +57,21 @@ body {
         text-align: center;
         padding: 5px;
         letter-spacing: 1px; }
-    #tasks .task-column .task-column-body .task {
-      height: 120px;
-      background: #E08E5F;
-      margin: 10px 15px;
-      border-radius: 3px;
-      box-shadow: 0 0 5px 1px grey; }
+    #tasks .task-column .task-column-body {
+      height: 735px;
+      overflow: auto; }
+      #tasks .task-column .task-column-body .task {
+        height: auto;
+        background: #E08E5F;
+        margin: 10px 15px;
+        border-radius: 3px;
+        box-shadow: 0 0 5px 1px grey;
+        box-sizing: border-box;
+        padding: 10px; }
+        #tasks .task-column .task-column-body .task h3 {
+          text-align: center;
+          font-weight: bold;
+          font-size: 22px;
+          padding-bottom: 5px; }
 
 /*# sourceMappingURL=custom-style.css.map */

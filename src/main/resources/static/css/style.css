@@ -1508,10 +1508,6 @@ img {
     border-radius: 50%;
 }
 
-hr {
-    margin-top: 21px;
-    border: 0;
-}
 
 .sr-only {
     position: absolute;
@@ -1584,16 +1580,6 @@ h6 .small,
     line-height: 1;
 }
 
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3 {
-    margin-top: 21px;
-    margin-bottom: 10.5px;
-}
-
 h1 small,
 .h1 small,
 h2 small,
@@ -1607,16 +1593,6 @@ h2 .small,
 h3 .small,
 .h3 .small {
     font-size: 65%;
-}
-
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-    margin-top: 10.5px;
-    margin-bottom: 10.5px;
 }
 
 h4 small,
@@ -3417,6 +3393,9 @@ select[multiple].input-lg {
 }
 
 .btn {
+    width: 125px;
+    margin-right: 5px;
+    font-size: 18px;
     display: inline-block;
     margin-bottom: 0;
     font-weight: normal;
@@ -3428,8 +3407,7 @@ select[multiple].input-lg {
     background-image: none;
     border: 1px solid transparent;
     white-space: nowrap;
-    padding: 10px 15px;
-    font-size: 15px;
+    padding: 8px 15px;
     line-height: 1.42857143;
     border-radius: 4px;
     -webkit-user-select: none;
@@ -3607,8 +3585,8 @@ fieldset[disabled] .btn-primary.focus {
 
 .btn-success {
     color: #ffffff;
-    background-color: #18bc9c;
-    border-color: #18bc9c;
+    background-color: #AEBF4D;
+    border-color: #AEBF4D;
 }
 
 .btn-success:focus,
@@ -3620,8 +3598,8 @@ fieldset[disabled] .btn-primary.focus {
 
 .btn-success:hover {
     color: #ffffff;
-    background-color: #128f76;
-    border-color: #11866f;
+    background-color: #91A32F;
+    border-color: #91A32F;
 }
 
 .btn-success:active,
@@ -4764,6 +4742,8 @@ ul.navbar-right > li >  a{
 }
 
 .navbar-collapse {
+    text-align: center;
+    font-size: 18px;
     overflow-x: visible;
     padding-right: 15px;
     padding-left: 15px;
@@ -4780,6 +4760,7 @@ ul.navbar-right > li >  a{
 @media (min-width: 768px) {
     .navbar-collapse {
         width: auto;
+
         border-top: 0;
         -webkit-box-shadow: none;
         box-shadow: none;
@@ -5170,16 +5151,20 @@ ul.navbar-right > li >  a{
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #1a242f;
+    border: 2px solid #fff;
 }
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #1a242f;
+    border-color: #E2BE65;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #ffffff;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar {
+    background-color: #E2BE65;
 }
 
 .navbar-default .navbar-collapse,
