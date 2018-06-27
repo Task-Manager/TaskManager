@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,8 +35,8 @@ public class TaskServiceImpl implements TaskService {
     /**
      * Finds all task's by project id and status id.
      *
-     * @param id     the project id.
-     * @param status the Task status that needs to be filtered.
+     * @param tasksByProjectId the tasks from some project.
+     * @param status           the Task status that needs to be filtered.
      * @return List<Task> task's found with the given status.
      * @throws ApplicationRuntimeException if the given status is not valid,
      *                                     or if the project id does not exist.
@@ -46,25 +47,33 @@ public class TaskServiceImpl implements TaskService {
             throw new ApplicationRuntimeException("Invalid project id. There is not such project in the DB.");
         }
 
+        List<Task> tasks = new ArrayList<>();
+
         switch (status) {
             case "ToDo":
-                return tasksByProjectId.stream()
+                tasks = tasksByProjectId.stream()
                         .filter(task -> task.getStatus().equals(status))
                         .collect(Collectors.toList());
-
+                break;
             case "InProgress":
-                return tasksByProjectId.stream()
+                tasks = tasksByProjectId.stream()
                         .filter(task -> task.getStatus().equals(status))
                         .collect(Collectors.toList());
-
+                break;
             case "Finished":
-                return tasksByProjectId.stream()
+                tasks = tasksByProjectId.stream()
                         .filter(task -> task.getStatus().equals(status))
                         .collect(Collectors.toList());
-
+                break;
             default:
                 throw new ApplicationRuntimeException("Cannot find task's with the given status in the DB.");
         }
+
+        for (Task task : tasks) {
+            task.setSubContent();
+        }
+
+        return tasks;
     }
 
 

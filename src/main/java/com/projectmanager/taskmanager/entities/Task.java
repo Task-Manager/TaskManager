@@ -43,7 +43,7 @@ public class Task {
         this.user = user;
         this.project = project;
         this.content = content;
-        this.setSubContent(content);
+        this.setSubContent();
     }
 
     public Long getId() {
@@ -99,7 +99,7 @@ public class Task {
     }
 
     @Transient
-    public void setSubContent(String content) {
+    public void setSubContent() {
         if (this.content.length() > 50) {
             this.subContent = content.substring(0, 50) + "...";
         } else {
