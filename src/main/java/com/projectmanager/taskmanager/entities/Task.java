@@ -21,13 +21,27 @@ public class Task {
     @Column(name = "status", nullable = false)
     private String status;
 
+    @Column(name = "content", length = 1000)
+    private String content;
+
+    /*
+        Used to show the content body, for the task
+        at the URL - project/id.
+
+        @Transient - does not get saved in the DB.
+     */
+    @Transient
+    private String subContent;
+
     public Task() {
     }
 
-    public Task(String label, User user, Project project) {
+    public Task(String label, User user, Project project, String content) {
         this.label = label;
         this.user = user;
         this.project = project;
+        this.content = content;
+        this.setSubContent(content);
     }
 
     public Long getId() {
@@ -68,5 +82,25 @@ public class Task {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getSubContent() {
+        return this.subContent;
+    }
+
+    public void setSubContent(String content) {
+        if (this.content.length() > 50) {
+            this.subContent = content.substring(0, 50) + "...";
+        } else {
+            this.subContent = content;
+        }
     }
 }
