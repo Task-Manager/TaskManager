@@ -8,6 +8,8 @@ public class VariableNames {
     // it should contain some instance of the user class.
     public static final String VIEW_VARIABLE_USER = "user";
 
+    public static final String VIEW_VARIABLE_PROJECTS = "projects";
+
     private VariableNames() {
     }
 }

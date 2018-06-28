@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+import static com.projectmanager.taskmanager.constants.task_statuses.TaskStatus.*;
+import static com.projectmanager.taskmanager.constants.url.ReturnViewRoads.BASE_LAYOUT;
+import static com.projectmanager.taskmanager.constants.view.HomePathValriables.HOME_TASKS;
+import static com.projectmanager.taskmanager.constants.view.VariableNames.VIEW;
+
 @Controller
 public class ProjectController {
 
@@ -28,19 +33,19 @@ public class ProjectController {
         List<Task> tasksByProjectId = this.taskService.findAllByProjectId(id);
 
         List<Task> tasksWithToDoStatus =
-                this.taskService.findAllByStatus(tasksByProjectId, "ToDo");
+                this.taskService.findAllByStatus(tasksByProjectId, TASK_STATUS_TODO);
 
         List<Task> tasksWithInProgressStatus =
-                this.taskService.findAllByStatus(tasksByProjectId, "InProgress");
+                this.taskService.findAllByStatus(tasksByProjectId, TASK_STATUS_IN_PROGRESS);
 
         List<Task> tasksWithFinishedStatus =
-                this.taskService.findAllByStatus(tasksByProjectId, "Finished");
+                this.taskService.findAllByStatus(tasksByProjectId, TASK_STATUS_FINISHED);
 
 
         model.addAttribute("todoTasks", tasksWithToDoStatus);
         model.addAttribute("inprogressTasks", tasksWithInProgressStatus);
         model.addAttribute("finishedTasks", tasksWithFinishedStatus);
-        model.addAttribute("view", "home/tasks");
-        return "base-layout";
+        model.addAttribute(VIEW, HOME_TASKS);
+        return BASE_LAYOUT;
     }
 }

@@ -35,7 +35,7 @@ public class Project {
 
     public Project(String name, String status) {
         this.name = name;
-        this.createdDate = null;
+        this.createdDate = null; // FIXME
         this.status = status;
         this.users = new ArrayList<>();
         this.tasks = new ArrayList<>();

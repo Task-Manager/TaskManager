@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import static com.projectmanager.taskmanager.constants.roles.RolesNames.ANONYMOUS_USER;
 import static com.projectmanager.taskmanager.constants.roles.RolesNames.USER_ROLE;
 import static com.projectmanager.taskmanager.constants.url.RedirectURLRoads.*;
+import static com.projectmanager.taskmanager.constants.url.ReturnViewRoads.BASE_LAYOUT;
 import static com.projectmanager.taskmanager.constants.user.UserErrorMessages.CONFIRM_PASS_NOT_MATCHING;
 import static com.projectmanager.taskmanager.constants.user.UserErrorMessages.EMAIL_ALREADY_EXISTS;
 import static com.projectmanager.taskmanager.constants.view.UserPathVariables.*;
@@ -46,7 +47,7 @@ public class UserController {
     public String login(Model model) {
 
         model.addAttribute(VIEW, USER_LOGIN);
-        return "base-layout";
+        return BASE_LAYOUT;
     }
 
     /*
@@ -75,7 +76,7 @@ public class UserController {
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute(VIEW, USER_REGISTER);
-        return "base-layout";
+        return BASE_LAYOUT;
     }
 
     @PostMapping("/register")
@@ -91,7 +92,7 @@ public class UserController {
             model.addAttribute(VIEW_MESSAGE, EMAIL_ALREADY_EXISTS);
             model.addAttribute(VIEW, USER_REGISTER);
 
-            return "base-layout";
+            return BASE_LAYOUT;
         }
 
 
@@ -99,7 +100,7 @@ public class UserController {
             model.addAttribute(VIEW_MESSAGE, CONFIRM_PASS_NOT_MATCHING);
             model.addAttribute(VIEW, USER_REGISTER);
 
-            return "base-layout";
+            return BASE_LAYOUT;
         }
 
 
@@ -151,6 +152,6 @@ public class UserController {
 
         model.addAttribute(VIEW_VARIABLE_USER, user);
         model.addAttribute(VIEW, USER_PROFILE);
-        return "base-layout";
+        return BASE_LAYOUT;
     }
 }

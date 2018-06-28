@@ -8,7 +8,7 @@ public final class RolesNames {
     public final static String ANONYMOUS_USER = "anonymousUser";
 
 
-    public final static String USER_ROLE = "USER_ROLE";
+    public final static String USER_ROLE = "ROLE_USER";
 
     private RolesNames() {
     }

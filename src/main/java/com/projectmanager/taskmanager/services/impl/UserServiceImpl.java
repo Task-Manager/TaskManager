@@ -41,6 +41,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean checkIfUserExists(String email) {
         User user = this.repository.findByEmail(email);
-        return user == null;
+        return user != null;
     }
 }
