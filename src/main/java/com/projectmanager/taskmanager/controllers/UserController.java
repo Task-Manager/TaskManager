@@ -26,8 +26,7 @@ import static com.projectmanager.taskmanager.constants.roles.RolesNames.ANONYMOU
 import static com.projectmanager.taskmanager.constants.roles.RolesNames.USER_ROLE;
 import static com.projectmanager.taskmanager.constants.url.RedirectURLRoads.*;
 import static com.projectmanager.taskmanager.constants.url.ReturnViewRoads.BASE_LAYOUT;
-import static com.projectmanager.taskmanager.constants.user.UserErrorMessages.CONFIRM_PASS_NOT_MATCHING;
-import static com.projectmanager.taskmanager.constants.user.UserErrorMessages.EMAIL_ALREADY_EXISTS;
+import static com.projectmanager.taskmanager.constants.user.UserErrorMessages.*;
 import static com.projectmanager.taskmanager.constants.view.UserPathVariables.*;
 import static com.projectmanager.taskmanager.constants.view.VariableNames.*;
 
@@ -90,6 +89,27 @@ public class UserController {
          */
         if (this.userService.checkIfUserExists(userDto.getEmail())) {
             model.addAttribute(VIEW_MESSAGE, EMAIL_ALREADY_EXISTS);
+            model.addAttribute(VIEW, USER_REGISTER);
+
+            return BASE_LAYOUT;
+        }
+
+        if (userDto.getEmail().isEmpty()) {
+            model.addAttribute(VIEW_MESSAGE, EMAIL_FIELD_IS_EMPTY);
+            model.addAttribute(VIEW, USER_REGISTER);
+
+            return BASE_LAYOUT;
+        }
+
+        if (userDto.getFullName().isEmpty()) {
+            model.addAttribute(VIEW_MESSAGE, NAME_FIELD_IS_EMPTY);
+            model.addAttribute(VIEW, USER_REGISTER);
+
+            return BASE_LAYOUT;
+        }
+
+        if (userDto.getPassword().isEmpty() || userDto.getConfirmPassword().isEmpty()) {
+            model.addAttribute(VIEW_MESSAGE, PASSWORD_FIELD_IS_EMPTY);
             model.addAttribute(VIEW, USER_REGISTER);
 
             return BASE_LAYOUT;
