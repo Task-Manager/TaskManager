@@ -14,6 +14,13 @@ body {
         width: 95%;
         margin: 0 auto; }
 
+::-webkit-scrollbar {
+  background: #F5D09E;
+  width: 0; }
+
+.message {
+  text-align: center; }
+
 #projects article {
   background-color: #FFAA5F;
   margin: 40px 30px;
@@ -34,10 +41,6 @@ body {
 #projects article:hover {
   opacity: 0.6;
   transition: opacity 0.2s linear 0s; }
-
-::-webkit-scrollbar {
-  background: #F5D09E;
-  width: 0; }
 
 #tasks {
   height: auto;

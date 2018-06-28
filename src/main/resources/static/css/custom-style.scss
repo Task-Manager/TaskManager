@@ -18,6 +18,15 @@ body {
   }
 }
 
+::-webkit-scrollbar{
+  background: #F5D09E;
+  width: 0;
+}
+
+.message{
+  text-align: center;
+}
+
 #projects {
   article {
     background-color: #FFAA5F;
@@ -43,11 +52,6 @@ body {
     opacity: 0.6;
     transition: opacity 0.2s linear 0s;
   }
-}
-
-::-webkit-scrollbar{
-  background: #F5D09E;
-  width: 0;
 }
 
 #tasks {
